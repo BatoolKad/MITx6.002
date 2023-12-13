@@ -150,7 +150,18 @@ def r_squared(y, estimated):
         a float for the R-squared error term
     """
     # TODO
-    pass
+
+    # sum of residuals
+    squared_error = sum([(i-j)**2 for i,j in zip(y, estimated)])
+
+    # Mean
+    mean = sum(y)/ len(y)
+
+    # Calc the total sum of residuals
+    tss= sum([(i-mean)**2 for i in y])
+
+    rSqr= 1 - (squared_error/tss)
+    return rSqr
 
 # Problem 3
 def evaluate_models_on_training(x, y, models):
